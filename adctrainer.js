@@ -42,6 +42,10 @@ class ADCTrainer {
             return false;
         };
         
+        this.canvas.oncontextmenu = function() {
+            return false;
+        }
+        
         this.canvas.addEventListener('mousedown', (evt) => {
             evt.preventDefault();
             if (this.targetsDisabled) {
