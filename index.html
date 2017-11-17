@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <style type="text/css">
+
+    </style>
+    <script type="text/javascript" src="adctrainer.js"></script>
+    <script>
+      function onLoad() {
+
+        const adcTrainer = new ADCTrainer(videoCanvas);
+
+        window.onresize = () => {
+          videoCanvas.width = window.innerWidth;
+          videoCanvas.height = window.innerHeight;
+          adcTrainer.updateSize();
+        };
+
+        window.onresize();
+
+        adcTrainer.draw();
+      }
+    </script>
+    <title>Kiting Trainer</title>
+  </head>
+  <body onload="onLoad()">
+    <canvas id="videoCanvas" width="300px" height="400px" style="position:absolute; top:0px; left:0px"/>
+  </body>
+</html>
