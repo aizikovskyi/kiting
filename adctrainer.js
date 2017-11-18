@@ -88,7 +88,7 @@ class ADCTrainer {
         this.context.font = '24px Arial';
         this.context.fillStyle = 'Yellow';
         this.context.textAlign = 'center';
-        this.context.fillText(this.score, (this.canvas.width / 2.0), (this.canvas.height / 2.0) - 6);
+        this.context.fillText(`${this.score} / ${this.scoreGoal}`, (this.canvas.width / 2.0), (this.canvas.height / 2.0) - 6);
         
         let secondsElapsed = 0;
         if (this.gameStarted) {
