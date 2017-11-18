@@ -20,7 +20,7 @@ class ADCTrainer {
         this.targetRadius = 20;
         
         this.activeTargetColor = { r:0xff, g:0x45, b:0x00 };
-        this.passiveTargetColor = { r:0x80, g:0x00, b:0x00 };
+        this.passiveTargetColor = { r:0x40, g:0x40, b:0x40 };
         this.colorTransitionTime = 100;
         
         this.score = 0;
@@ -98,8 +98,11 @@ class ADCTrainer {
             secondsElapsed = (this.endTime - this.startTime) / 1000.0;
         }
         if (secondsElapsed !== 0) {
-            const secondsLabel = `${secondsElapsed.toFixed(2)}`;
+            const secondsLabel = `${secondsElapsed.toFixed(2)}s`;
             this.context.fillText(secondsLabel, (this.canvas.width / 2.0), (this.canvas.height / 2.0) + 24);
+        }
+        else {
+            this.context.fillText('click the red target', (this.canvas.width / 2.0), (this.canvas.height / 2.0) + 24);
         }
     }
     
@@ -199,6 +202,7 @@ class ADCTrainer {
     
     draw() {
         this.clearCanvas();
+        this.showText();
         for (let targetId = 0; targetId <= 1; targetId++) {
             let color = 'Yellow';
             if (!this.targetsDisabled) {
@@ -215,7 +219,6 @@ class ADCTrainer {
             }
             this.drawTarget(targetId, color);            
         }
-        this.showText();
     }
     
     updateSize() {
